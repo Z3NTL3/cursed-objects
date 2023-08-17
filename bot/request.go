@@ -37,7 +37,7 @@ func(c *BotClient) Request(proxy string) error{
 		"connection": "keep-alive",
 	})
 
-	proxyUri, err := url.Parse(proxy); if err != nil {
+	proxyUri, err := url.Parse(fmt.Sprintf("http://%s", proxy)); if err != nil {
 		return err
 	}
 	req.Ctx().Client.Transport = &http.Transport{
