@@ -16,7 +16,7 @@ func Read(filepath string) ([]string, error) {
 		chunk := make([]byte, 1042)
 		n, err := f.Read(chunk)
 
-		if err != nil && err == io.EOF {
+		if err == io.EOF {
 			break
 		}
 
