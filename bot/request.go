@@ -44,7 +44,7 @@ func(c *BotClient) Request(proxy string) error{
 		Proxy: http.ProxyURL(proxyUri),
 	}
 
-	req = req.POST(c.Target)
+	req = req.GET(c.Target)
 	for i := 0 ; i < c.Concurrency; i ++ {
 		go func(){
 			resp := req.Send()
