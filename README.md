@@ -1,6 +1,8 @@
 # Cursed Objects
 This script got it's name from **Jujuts Kaisen**, yet I do not know why I did so. 
 
+**It is untested, amplifications will be commited upon feedback**
+
 ### Disclaimer
 By using this tool/script you automatically agree upon:
 
