@@ -37,7 +37,8 @@ func main(){
 
 	flag.Parse()
 
-	if *target == "" || !strings.Contains(*target, "http://") || !strings.Contains(*target, "https://") {
+	fmt.Println(*target)
+	if *target == "" || !strings.Contains(*target, "http://") && !strings.Contains(*target, "https://") {
 		log.Fatal("Please satisfy http://domain.com or https://domain.com on flag target")
 	}
 
