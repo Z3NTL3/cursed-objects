@@ -72,9 +72,11 @@ func main(){
 		Concurrency: *concurrency,
 	}
 	for {
-		proxy := ref[globals.PROXIES][rand.Intn(len(ref[globals.PROXIES]))]
-		err := bot.Request(proxy); if err != nil {
-			fmt.Printf("[ERR]: %s", err)
-		}
+		go func(){
+			proxy := ref[globals.PROXIES][rand.Intn(len(ref[globals.PROXIES]))]
+			err := bot.Request(proxy); if err != nil {
+				fmt.Printf("[ERR]: %s", err)
+			}
+		}()
 	}
 }
