@@ -10,6 +10,7 @@ func Read(filepath string) ([]string, error) {
 	f, err := os.OpenFile(filepath, os.O_RDONLY, 0755); if err != nil {
 		return nil, err
 	}
+	defer f.Close()
 
 	var data string
 	for {
