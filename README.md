@@ -1,7 +1,9 @@
 # Cursed Objects
 This script got it's name from **Jujuts Kaisen**, yet I do not know why I did so. 
 
-**It is untested, amplifications will be commited upon feedback**
+### One proof
+``Single machine 1 GBPS and public proxies``
+<img src="https://media.discordapp.net/attachments/956310840464773200/1141694033572401273/image.png?width=1090&height=669" >
 
 ### Disclaimer
 By using this tool/script you automatically agree upon:
