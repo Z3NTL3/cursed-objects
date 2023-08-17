@@ -26,7 +26,7 @@ func(c *BotClient) Request(proxy string) error{
 	if time.Now().Unix() >= c.StopAt.Unix() {
 		log.Fatal("Forced STOP due to flood duration exceeded given time")
 	}
-	ref := *globals.Table
+	ref := globals.Table
 	req := request.New().
 	AddTLSConfig(&tls.Config{InsecureSkipVerify: true}).
 	AddHeader(map[string]string{
@@ -52,10 +52,10 @@ func(c *BotClient) Request(proxy string) error{
 
 			if resp.OK() {
 				// SUCCESS
-				fmt.Printf("\x1b[33m[SUCCESS]\x1b[0m \x1b[1m %s:%s\rn\n", proxyUri.Host, proxyUri.Port())
+				fmt.Printf("\x1b[33m[SUCCESS]\x1b[0m \x1b[1m %s:%s\r\n", proxyUri.Host, proxyUri.Port())
 			} else {
 				// FAILURE
-				fmt.Printf("\x1b[31m[FAIL]\x1b[0m \x1b[1m %s:%s\rn\n", proxyUri.Host, proxyUri.Port())
+				fmt.Printf("\x1b[31m[FAIL]\x1b[0m \x1b[1m %s:%s\r\n", proxyUri.Host, proxyUri.Port())
 			}
 
 			

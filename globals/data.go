@@ -1,7 +1,7 @@
 package globals
 
 var (
-	Table *map[string][]string
+	Table = make(map[string][]string, 0)
 )
 
 const (

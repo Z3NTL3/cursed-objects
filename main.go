@@ -37,16 +37,13 @@ func main(){
 
 	flag.Parse()
 
-	fmt.Println(*target)
 	if *target == "" || !strings.Contains(*target, "http://") && !strings.Contains(*target, "https://") {
 		log.Fatal("Please satisfy http://domain.com or https://domain.com on flag target")
 	}
 
-	execPath, err := os.Executable(); if err != nil {
+	base, err := os.Getwd(); if err != nil {
 		log.Fatal(err)
 	}
-
-	base := filepath.Dir(execPath)
 
 	files := []string{
 		"accepts.txt",
@@ -56,7 +53,6 @@ func main(){
 	}
 
 	
-	ref := *globals.Table
 	for i := 0; i < len(files); i++ {
 		file := files[i]
 		name := strings.Split(file,".txt")[0]
@@ -64,7 +60,7 @@ func main(){
 		data, err := filesystem.Read(filepath.Join(base, file)); if err != nil {
 			log.Fatal(err)
 		}
-		ref[name] = data
+		globals.Table[name] = data
 	}
 
 	bot := &bot.BotClient{
@@ -74,7 +70,7 @@ func main(){
 	}
 	for {
 		go func(){
-			proxy := ref[globals.PROXIES][rand.Intn(len(ref[globals.PROXIES]))]
+			proxy := globals.Table[globals.PROXIES][rand.Intn(len(globals.Table[globals.PROXIES]))]
 			err := bot.Request(proxy); if err != nil {
 				fmt.Printf("[ERR]: %s", err)
 			}
