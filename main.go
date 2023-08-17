@@ -35,7 +35,6 @@ func main(){
 	fmt.Fprint(os.Stdout, *logo)
 	fmt.Fprint(os.Stdout, "\r\n   \x1b[1mYour object to eliminate\x1b[0m \x1b[1m\"\x1b[0m\x1b[31mthings\x1b[0m\x1b[1m\"\x1b[0m")
 	fmt.Fprint(os.Stdout, "\r\n              \x1b[1m\x1b[38;5;201m@\x1b[38;5;93mz3ntl3\x1b[0m\n\n")
-	os.Exit(-1)
 
 	flag.Parse()
 
