@@ -30,7 +30,7 @@ func(c *BotClient) Request(proxy string) error{
 	req := request.New().
 	AddTLSConfig(&tls.Config{InsecureSkipVerify: true}).
 	AddHeader(map[string]string{
-		"cache-control": "no-store",
+		"cache-control": "must-revalidate",
 		"user-agent": ref[globals.UAS][rand.Intn(len(ref[globals.UAS]))],
 		"accept": ref[globals.ACCEPTS][rand.Intn(len(ref[globals.ACCEPTS]))],
 		"referer": ref[globals.REFS][rand.Intn(len(ref[globals.REFS]))],
