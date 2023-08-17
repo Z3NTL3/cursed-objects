@@ -50,7 +50,7 @@ func(c *BotClient) Request(proxy string) error{
 			resp := req.Send()
 			defer resp.Close()
 
-			if resp.OK() {
+			if resp.Error() == nil {
 				// SUCCESS
 				fmt.Printf("\x1b[33m[SUCCESS]\x1b[0m \x1b[1m %s\r\n", proxyUri.Host)
 			} else {
