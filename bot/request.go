@@ -52,10 +52,10 @@ func(c *BotClient) Request(proxy string) error{
 
 			if resp.Error() == nil {
 				// SUCCESS
-				fmt.Printf("\x1b[33m[SUCCESS]\x1b[0m \x1b[1m %s\r\n", proxyUri.Host)
+				fmt.Printf("\x1b[33m[SUCCESS]\x1b[0m \x1b[1m %s\r", proxyUri.Host)
 			} else {
 				// FAILURE
-				fmt.Printf("\x1b[31m[FAIL]\x1b[0m \x1b[1m %s\r\n", proxyUri.Host)
+				fmt.Printf("\x1b[31m[FAIL]\x1b[0m \x1b[1m %s\r", proxyUri.Host)
 			}
 
 			
