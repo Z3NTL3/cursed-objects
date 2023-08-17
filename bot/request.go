@@ -2,6 +2,7 @@ package bot
 
 import (
 	"crypto/tls"
+	"fmt"
 	"log"
 	"math/rand"
 	"net/http"
@@ -51,8 +52,10 @@ func(c *BotClient) Request(proxy string) error{
 
 			if resp.OK() {
 				// SUCCESS
+				fmt.Printf("\x1b[33m[SUCCESS]\x1b[0m \x1b[1m %s:%s\rn\n", proxyUri.Host, proxyUri.Port())
 			} else {
 				// FAILURE
+				fmt.Printf("\x1b[31m[FAIL]\x1b[0m \x1b[1m %s:%s\rn\n", proxyUri.Host, proxyUri.Port())
 			}
 
 			
