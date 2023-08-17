@@ -4,7 +4,7 @@ This script got it's name from **Jujuts Kaisen**, yet I do not know why I did so
 ### Proofs
 ``Single machine 1 GBPS and public proxies``
 <img src="https://media.discordapp.net/attachments/956310840464773200/1141694033572401273/image.png?width=1090&height=669" >
-<img src="https://media.discordapp.net/attachments/1063791657360818266/1141697929552347226/image.png?width=1407&height=669">
+<img src="https://media.discordapp.net/attachments/956310840464773200/1141714985077182545/image-42.png">
 
 ### Disclaimer
 By using this tool/script you automatically agree upon:
