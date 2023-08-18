@@ -1,0 +1,2 @@
+# select all and paste http/https proxies only
+# in the form of ip:port 
