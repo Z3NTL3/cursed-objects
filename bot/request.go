@@ -3,10 +3,10 @@ package bot
 import (
 	"crypto/tls"
 	"fmt"
-	"log"
 	"math/rand"
 	"net/http"
 	"net/url"
+	"os"
 	"time"
 
 	"z3ntl3/cursed-objects/globals"
@@ -24,7 +24,8 @@ type (
 
 func (c *BotClient) Request(proxy string) error {
 	if time.Now().Unix() >= c.StopAt.Unix() {
-		log.Fatal("Forced STOP due to flood duration exceeded given time")
+		fmt.Println("Forced STOP due to flood duration exceeded given time")
+		os.Kill.Signal()
 	}
 	req := request.New().
 		AddTLSConfig(&tls.Config{InsecureSkipVerify: true}).
