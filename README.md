@@ -1,5 +1,5 @@
 # Cursed Objects
-This script got it's name from **Jujuts Kaisen**, yet I do not know why I did so. 
+This script got it's name from **Jujutsu Kaisen**, yet I do not know why I did so. 
 
 ### Proofs
 ``Single machine 1 GBPS and public proxies``
