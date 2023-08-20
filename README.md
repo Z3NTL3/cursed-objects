@@ -4,8 +4,9 @@ This script got it's name from **Jujutsu Kaisen**, yet I do not know why I did s
 ### Upcoming update
 Into an new project called Cursed Spirits, the older one Cursed Objects will receive an power spike enhancement.
 
-Cursed Spirit will be at least 10 times more powerful than Cursed Objects. It will be published into ``Pix4Devs/CursedSpirits`` between date 21-08-2023 - 22-08-2023
+Cursed Spirit will be at least 10 times more powerful than Cursed Objects. It will be published into ``Pix4Devs/CursedSpirits``
 
+Release: ``After 100 stars``
 ### Proofs
 ``Single machine 1 GBPS and public proxies``
 <img src="https://media.discordapp.net/attachments/935123716617146369/1141780704460550195/image.png?width=1032&height=669">
