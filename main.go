@@ -50,8 +50,11 @@ func main() {
 	}
 
 	files := map[string]interface{}{
+		"http.txt":    &globals.HTTP,
+		"https.txt":   &globals.HTTPS,
+		"socks4.txt":  &globals.SOCKS4,
+		"socks5.txt":  &globals.PROXIES,
 		"accepts.txt": &globals.ACCEPTS,
-		"proxies.txt": &globals.PROXIES,
 		"refs.txt":    &globals.REFS,
 		"uas.txt":     &globals.UAS,
 	}
@@ -62,6 +65,21 @@ func main() {
 			log.Fatal(err)
 		}
 		*v.(*[]string) = data
+	}
+
+	proxyLists := map[string]interface{}{
+		"http":    &globals.HTTP,
+		"https":   &globals.HTTPS,
+		"socks4":  &globals.SOCKS4,
+		"socks5":  &globals.PROXIES,
+	}
+	for protocol, proxyList := range proxyLists {
+		for _, proxy := range *proxyList.(*[]string) {
+			globals.PROXIES = append(globals.PROXIES, globals.Proxy{
+				Protocol: globals.ProtocolType(protocol),
+				ProxyStr: proxy,
+			})
+		}
 	}
 
 	// for i := 0; i < len(files); i++ {
