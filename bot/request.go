@@ -43,7 +43,8 @@ func (c *BotClient) Request(proxy string) error {
 	}
 	req.Ctx().Client.Transport = &http.Transport{
 		Proxy: http.ProxyURL(proxyUri),
-	}
+		ForceAttemptHTTP2: true, //if dest server supports http2 it'll send a http2 req, else http1.1
+	} 
 
 	req = req.GET(c.Target)
 	for i := 0; i < c.Concurrency; i++ {
