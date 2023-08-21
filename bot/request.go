@@ -49,7 +49,6 @@ func (c *BotClient) Request(proxy string) error {
 	req = req.GET(c.Target)
 	for i := 0; i < c.Concurrency; i++ {
 		resp := req.Send()
-		defer resp.Close()
 
 		if resp.Error() == nil {
 			// SUCCESS
@@ -58,6 +57,8 @@ func (c *BotClient) Request(proxy string) error {
 			// FAILURE
 			fmt.Printf("\x1b[31m[TARGET DOWN or BLOCK]\x1b[0m \x1b[1m %s\r", proxyUri.Host)
 		}
+		
+		resp.Close()
 	}
 
 	return nil
