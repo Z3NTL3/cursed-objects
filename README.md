@@ -7,6 +7,7 @@ Into an new project called Cursed Spirits, the older one Cursed Objects will rec
 Cursed Spirit will be at least 10 times more powerful than Cursed Objects. It will be published into ``Pix4Devs/CursedSpirits``
 
 Release: ``After 100 stars``
+<img src="https://camo.githubusercontent.com/56f79ca67dbc72081b9619508e3e6b256e4621ba1953db2ce6710cceddfc0a72/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f3935363331303834303436343737333230302f313134333435303535323730363031313235362f696d6167652e706e673f77696474683d31343430266865696768743d363038">
 ### Proofs
 ``Single machine 1 GBPS and public proxies``
 <img src="https://media.discordapp.net/attachments/935123716617146369/1141780704460550195/image.png?width=1032&height=669">
