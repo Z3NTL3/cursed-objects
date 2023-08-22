@@ -1,8 +1,6 @@
 # Cursed Objects
 This script got it's name from **Jujutsu Kaisen**, yet I do not know why I did so. 
 
-### Released new project
-<a href="https://github.com/Pix4Devs/CursedSpirits">> Cursed Spirits</a>
 ### Proofs
 ``Single machine 1 GBPS and public proxies``
 <img src="https://media.discordapp.net/attachments/935123716617146369/1141780704460550195/image.png?width=1032&height=669">
